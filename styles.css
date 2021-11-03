@@ -36,14 +36,47 @@ main {
   width: 117px;
   height: 146px;
 
+  border: 1px solid #99cea8;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
   background-color: #a7e9af;
+
+  position: relative;
+
+  transition: all 0.5s;
+  transform-style: preserve-3d;
+}
+
+.face {
+  width: 100px;
+  height: 100px;
+
+  position: absolute;
+  backface-visibility: hidden;
+  transition: all 0.5s;
+  transform-style: preserve-3d;
+}
+
+.girar {
+  transform: rotateY(180deg);
+}
+
+.back-face {
+  transform: rotateY(180deg);
+}
+
+.carta:hover .back-face {
+  transform: rotateY(0deg);
+}
+
+.carta:hover .front-face {
+  transform: rotateY(-180deg);
 }
 
 .carta img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
 }

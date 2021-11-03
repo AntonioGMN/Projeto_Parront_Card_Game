@@ -10,3 +10,6 @@ function validNcartas(){
     }while(ncartas%2 !== 0);
 }
 
+function girar(sele){
+    sele.classList.add("girar");
+}
