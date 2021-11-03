@@ -1,0 +1,45 @@
+body {
+  background-color: #eef9bf;
+}
+
+header {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  margin-top: 40px;
+}
+
+h1 {
+  font-family: Roboto;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 66px;
+  letter-spacing: -0.004em;
+  text-align: left;
+
+  color: #75b79e;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 47px 100px 0 100px;
+
+  gap: 34px;
+}
+
+.carta {
+  width: 117px;
+  height: 146px;
+
+  background-color: #a7e9af;
+}
+
+.carta img {
+  width: 100px;
+  height: 100px;
+}
