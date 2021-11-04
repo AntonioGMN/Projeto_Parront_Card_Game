@@ -42,7 +42,7 @@ main {
   justify-content: center;
   align-items: center;
 
-  background-color: #a7e9af;
+  background-color: #a7e9af; */
 
   position: relative;
 
@@ -66,14 +66,6 @@ main {
 
 .back-face {
   transform: rotateY(180deg);
-}
-
-.carta:hover .back-face {
-  transform: rotateY(0deg);
-}
-
-.carta:hover .front-face {
-  transform: rotateY(-180deg);
 }
 
 .carta img {
