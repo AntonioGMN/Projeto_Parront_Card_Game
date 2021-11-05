@@ -1,3 +1,6 @@
+let jogadas = 0;
+let final = 0;
+
 let ncartas = prompt("Qual o numero de cartas?");
 
 while(ncartas<4 || ncartas>14 || ncartas%2 !== 0){
@@ -41,6 +44,7 @@ AdicionarCarta(copia);
 
 function girar(sele){
     sele.classList.add("girar");
+    jogadas++;
     let primeiraCarta = document.querySelector(".carta.primeiraCarta");
 
     if(primeiraCarta == null){
@@ -60,15 +64,19 @@ function compararCartas(){
         let img1 = document.querySelector(".carta.primeiraCarta .back-face")
         let img2 = document.querySelector(".carta.segundaCarta .back-face")       
         
-        if(img1.innerHTML == img2.innerHTML){
-            console.log("iguais");
-        }else{
+        if(img1.innerHTML !== img2.innerHTML){
             primeiraCarta.classList.remove("girar");
             segundaCarta.classList.remove("girar");
+        }else{
+            final++;
         }
 
         primeiraCarta.classList.remove("primeiraCarta");
         segundaCarta.classList.remove("segundaCarta");
+    }
+    
+    if(final == ncartas/2){
+        alert("Você ganhou em "+jogadas+ " jogadas!");
     }
 }
 
@@ -76,3 +84,6 @@ function comparador() {
 	return Math.random() - 0.5; 
 }
 
+if(final == ncartas/2){
+    alert("Você ganhou em"+ jogadas + "jogadas!");
+}
