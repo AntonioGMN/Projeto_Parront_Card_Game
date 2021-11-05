@@ -22,10 +22,10 @@ function AdicionarCarta(array=[]){
         main = document.querySelector("main");
         main.innerHTML = main.innerHTML + `
         <article class="carta" data-identifier="card" onclick="girar(this)">
-        <div class="front-face face" data-identifier="back-face">
+        <div class="front-face face" data-identifier="front-face">
             <img src="imagens/front.png">
         </div>
-        <div class="back-face face" data-identifier="front-face">
+        <div class="back-face face" data-identifier="back-face">
             ${array[cont]}
         </div>
         </article>`;
@@ -41,8 +41,38 @@ AdicionarCarta(copia);
 
 function girar(sele){
     sele.classList.add("girar");
+    let primeiraCarta = document.querySelector(".carta.primeiraCarta");
+
+    if(primeiraCarta == null){
+        sele.classList.add("primeiraCarta");
+    }else{
+        sele.classList.add("segundaCarta");
+    }
+
+    setTimeout(compararCartas, 1000);
+}
+
+function compararCartas(){
+    let primeiraCarta = document.querySelector(".carta.primeiraCarta");
+    let segundaCarta = document.querySelector(".carta.segundaCarta");
+    
+    if(primeiraCarta !== null && segundaCarta !== null){
+        let img1 = document.querySelector(".carta.primeiraCarta .back-face")
+        let img2 = document.querySelector(".carta.segundaCarta .back-face")       
+        
+        if(img1.innerHTML == img2.innerHTML){
+            console.log("iguais");
+        }else{
+            primeiraCarta.classList.remove("girar");
+            segundaCarta.classList.remove("girar");
+        }
+
+        primeiraCarta.classList.remove("primeiraCarta");
+        segundaCarta.classList.remove("segundaCarta");
+    }
 }
 
 function comparador() { 
 	return Math.random() - 0.5; 
 }
+
