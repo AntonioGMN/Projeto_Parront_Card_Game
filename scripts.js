@@ -76,6 +76,7 @@ function compararCartas(){
     }
     
     if(final == ncartas/2){
+        clearInterval(idIntervalo);
         alert("Você ganhou em "+jogadas+ " jogadas!");
     }
 }
@@ -87,3 +88,25 @@ function comparador() {
 if(final == ncartas/2){
     alert("Você ganhou em"+ jogadas + "jogadas!");
 }
+
+let segundos, minutos, idIntervalo;
+minutos = 0;
+segundos = 0;
+
+
+function contar(){
+    idIntervalo = setInterval(passaTempo,1000);
+}
+
+function passaTempo(){
+    let relogio = document.querySelector(".relogio")
+    relogio.innerHTML = minutos+":"+segundos;
+    segundos++;
+    if(segundos === 60){
+        minutos++;
+        segundos = 0;
+    }
+    console.log(segundos);
+}
+
+contar();

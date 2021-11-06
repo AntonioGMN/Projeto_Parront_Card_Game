@@ -23,6 +23,20 @@ h1 {
   color: #75b79e;
 }
 
+.relogio{
+  background-color: azure;
+  
+  font-size: large;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 5px;
+  right: 5px;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
@@ -72,3 +86,5 @@ main {
   width: 100%;
   height: 100%;
 }
+
+
