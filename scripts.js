@@ -3,6 +3,10 @@ let final = 0;
 
 let ncartas = prompt("Qual o numero de cartas?");
 
+let segundos, minutos, idIntervalo;
+minutos = 0;
+segundos = 0;
+
 while(ncartas<4 || ncartas>14 || ncartas%2 !== 0){
     ncartas = prompt("Escolha um numero valido de cartas");
 }
@@ -46,14 +50,13 @@ function girar(sele){
     sele.classList.add("girar");
     jogadas++;
     let primeiraCarta = document.querySelector(".carta.primeiraCarta");
-
+   
     if(primeiraCarta == null){
         sele.classList.add("primeiraCarta");
     }else{
         sele.classList.add("segundaCarta");
+        setTimeout(compararCartas, 1000);
     }
-
-    setTimeout(compararCartas, 1000);
 }
 
 function compararCartas(){
@@ -70,28 +73,25 @@ function compararCartas(){
         }else{
             final++;
         }
-
-        primeiraCarta.classList.remove("primeiraCarta");
-        segundaCarta.classList.remove("segundaCarta");
     }
+    
+    primeiraCarta.classList.remove("primeiraCarta");
+    segundaCarta.classList.remove("segundaCarta");
+    
     
     if(final == ncartas/2){
         clearInterval(idIntervalo);
-        alert("Você ganhou em "+jogadas+ " jogadas!");
+        alert("Você ganhou com o tempo de "+minutos+" minutos e "+segundos+" segundos em "+ jogadas+ " jogadas!");
+        novoJogo = prompt("Você quer jogar de novo?");
+        if(novoJogo == "sim" || novoJogo == "Sim"){
+            document.location.reload(true);
+        }
     }
 }
 
 function comparador() { 
 	return Math.random() - 0.5; 
 }
-
-if(final == ncartas/2){
-    alert("Você ganhou em"+ jogadas + "jogadas!");
-}
-
-let segundos, minutos, idIntervalo;
-minutos = 0;
-segundos = 0;
 
 
 function contar(){
@@ -105,8 +105,14 @@ function passaTempo(){
     if(segundos === 60){
         minutos++;
         segundos = 0;
+    };
+}
+
+function checartermino(){
+    if(final == ncartas/2){
+        clearInterval(idIntervalo);
+        alert("Você ganhou com o tempo de "+minutos+" minutos e "+segundos+" segundos em "+ jogadas+ " jogadas!");
     }
-    console.log(segundos);
 }
 
 contar();

@@ -24,9 +24,13 @@ h1 {
 }
 
 .relogio{
+  width: 40px;
+  height: 40px;
   background-color: azure;
   
   font-size: large;
+
+  border-radius: 50px;
 
   display: flex;
   justify-content: center;
